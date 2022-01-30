@@ -1,0 +1,19 @@
+{
+  "name": "check-first-letter",
+  "version": "1.0.0",
+  "description": "A simple function that checks whether a string starts with a capital letter.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha './tests/**/*.test.js' --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faridkhaheshi/check-first-letter.git"
+  },
+  "author": "Farid Khaheshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faridkhaheshi/check-first-letter/issues"
+  },
+  "homepage": "https://github.com/faridkhaheshi/check-first-letter#readme"
+}
