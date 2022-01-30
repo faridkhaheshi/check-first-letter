@@ -16,7 +16,7 @@ touch test.js
 
 In the test file, import the function using the following require statement:
 
-```
+```javascript
 const checkFirstCharacter = require('./index')
 
 const doesStartWithCapital = checkFirstCharacter('Something in Capital')
@@ -29,3 +29,7 @@ To run test cases, run `npm run test` after installing dependencies using `npm i
 ## See samples
 
 To see samples, run `npm run start` after installing dependencies using `npm install`.
+
+## Valid inputs
+
+This function accepts only string inputs. It throws a `TypeError` if a non-string input is provided.
