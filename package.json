@@ -4,7 +4,8 @@
   "description": "A simple function that checks whether a string starts with a capital letter.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha './tests/**/*.test.js' --watch"
+    "test": "mocha './tests/**/*.test.js' --watch",
+    "start": "node example.js"
   },
   "repository": {
     "type": "git",

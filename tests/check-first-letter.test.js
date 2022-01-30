@@ -1,6 +1,6 @@
 const { assert } = require("chai")
 
-const checkFirstLetter = require("../index")
+const checkFirstCharacter = require("../index")
 
 describe("checkFirstLetter()", () => {
   let testInput
@@ -15,7 +15,12 @@ describe("checkFirstLetter()", () => {
   describe("wrong inputs", () => {
     it("throws an error if a non-string input is provided", () => {
       testInput = 12
-      assert.throws(() => checkFirstLetter(testInput))
+      assert.throws(() => checkFirstCharacter(testInput))
+    })
+
+    it("throws an error if given an array of strings", () => {
+      testInput = ["A-letter", "B-tail"]
+      assert.throws(() => checkFirstCharacter(testInput))
     })
   })
 
@@ -24,7 +29,7 @@ describe("checkFirstLetter()", () => {
       testInput = new Array(26)
         .fill(0)
         .map((_, index) => String.fromCharCode(65 + index) + "-tail")
-      result = testInput.map(i => checkFirstLetter(i))
+      result = testInput.map(i => checkFirstCharacter(i))
       assert.deepEqual(result, new Array(26).fill(true))
     })
   })
@@ -34,19 +39,25 @@ describe("checkFirstLetter()", () => {
       testInput = new Array(26)
         .fill(0)
         .map((_, index) => String.fromCharCode(97 + index) + "-tail")
-      result = testInput.map(i => checkFirstLetter(i))
+      result = testInput.map(i => checkFirstCharacter(i))
       assert.deepEqual(result, new Array(26).fill(false))
     })
 
     it("returns false for a string that starts with a number", () => {
       testInput = new Array(26).fill(0).map((_, index) => index + "-tail")
-      result = testInput.map(i => checkFirstLetter(i))
+      result = testInput.map(i => checkFirstCharacter(i))
       assert.deepEqual(result, new Array(26).fill(false))
     })
 
     it("returns false for a string that starts with space", () => {
       testInput = " Hello"
-      result = checkFirstLetter(testInput)
+      result = checkFirstCharacter(testInput)
+      assert.strictEqual(result, false)
+    })
+
+    it("returns false for an empty string", () => {
+      testInput = ""
+      result = checkFirstCharacter(testInput)
       assert.strictEqual(result, false)
     })
   })
